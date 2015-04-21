@@ -1,14 +1,14 @@
-module.exports=function(inputWords){
-    
-    var res={};
-   return inputWords.reduce(function (previous, current) {
-       if(previous.current===undefined) {
-           console.log(previous);
-           console.log('Je suis la:'+current);
-             previous[current] =0;
-       }else {
-            previous[current]=Number(previous[current])+1;
-       }
-       return previous;
-    },res);
-};
+function countWords(inputWords) {
+
+    var initialValue={};
+    return inputWords.reduce(function (previousValue,currentValue) {
+        if(previousValue[currentValue]===undefined){
+            previousValue[currentValue]=1;
+        }else{
+            previousValue[currentValue]=Number(previousValue[currentValue])+1;
+        }
+       return previousValue;
+    },initialValue);
+}
+
+module.exports = countWords
